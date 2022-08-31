@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Movie Watchlist</title>
+        <link rel="icon" href="images/logo.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />  
+        <link rel="stylesheet" href="index.css">
+    </head>
+
+
+    <body>
+        
+        <div class="app-screen">
+
+            <header class="header"></header>
+
+
+            <section class="hero">
+                <div class="hero__text">
+                    <p class="hero__title">Find your film</p>
+                    <p class="hero__link"><a href="watchlist.html">My Watchlist</a></p>            
+                </div>
+
+                <div class="hero__input">
+                    <label for="searchInput"><i class="fa fa-search" aria-hidden="true"></i></label>
+                    <input class="search-input" id="searchInput" type="text" placeholder="Search for a movie">
+                    <button class="search-btn" id="searchBtn" type="submit">Search</button>
+                </div>
+            </section>
+
+
+            <section id="displayEl" class="display">
+
+                <div id="defaultMessage" class="default-message">
+                    <img src="images/icon-movie.png" alt="" class="movie-icon" id="startBtn">
+                    <p>Start Exploring</p>
+                </div>
+
+            </section>
+
+
+
+            <footer class="footer"></footer>
+
+        </div>
+
+
+
+
+
+
+
+        <script src="index.js"></script>
+    </body>
+</html>
