@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar";
 
 
 
-export default function Hero(props) {
+export default function Hero(props: any) {
   return (
     <section className="hero">
       <div className="hero__text">
