@@ -1,7 +1,7 @@
 # Movie Watchlist
 Use the OMDb API to search movies and add them to your watchlist
 
-[Live Demo](https://movie-watchlist-mendoza.netlify.app/)
+### [Live Demo](https://movie-watchlist-mendoza.netlify.app/)
 
 ## Features
 - Search for movies/shows from the OMDb API
