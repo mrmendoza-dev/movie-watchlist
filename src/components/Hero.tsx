@@ -15,9 +15,6 @@ export default function Hero(props: any) {
         </p>
       </div>
 
-    {props.text.title.toLowerCase() === "find your film" ? <SearchBar/> : <></>}
-
-
     </section>
   );
 }

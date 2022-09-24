@@ -38,8 +38,6 @@ const base = "https://www.omdbapi.com/";
 
 
 
-
-
 async function getMovies(search) {
     let url = `${base}?apikey=${key}&s=${search}`;
     let response = await fetch(url);
