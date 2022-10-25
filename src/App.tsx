@@ -8,7 +8,7 @@ import Watchlist from "./pages/Watchlist";
 
 function App() {
   const [watchlist, setWatchlist] = useState([]);
-
+  const [searchResults, setSearchResults] = useState([]);
   useEffect(loadWatchlist, []);
 
 
