@@ -7,7 +7,6 @@ import Watchlist from "./pages/Watchlist";
 
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
   useEffect(loadWatchlist, []);
@@ -24,6 +23,7 @@ function App() {
     let response = await fetch(url);
     let data = await response.json();
     let results = data.Search;
+
     setSearchResults(results);
     console.log(results);
     // renderMovies(results);
@@ -52,7 +52,7 @@ function loadWatchlist() {
             element={
               <Search
                 getSearchInput={getSearchInput}
-                searchResults={searchResults}
+                watchlist={watchlist}
               />
             }
           />

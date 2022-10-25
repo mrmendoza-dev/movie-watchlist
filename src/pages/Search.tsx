@@ -4,60 +4,48 @@ import movieIcon from "../assets/images/icon-movie.png";
 import React, { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import SearchBar from "../components/SearchBar";
-
+import { nanoid } from "nanoid";
 
 
 export default function Search(props: any) {
+  const [searchResults, setSearchResults] = useState([]);
 
   
   const key = "b062f19b";
   const base = "https://www.omdbapi.com/";
   
 
-useEffect(()=> {getMovies("bladerunner")}, [])
+useEffect(() => {
+  let results = getMovies("blade");
+}, []);
 
+
+async function getMovie(id: any) {
+  // console.log(id.imdbID);
+    let url = `${base}?apikey=${key}&i=${id.imdbID}`;
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
+}
 
 async function getMovies(search: any) {
   let url = `${base}?apikey=${key}&s=${search}`;
   let response = await fetch(url);
   let data = await response.json();
-  console.log(url);
+  // console.log(url);
+
+
   let results = data.Search;
-  renderMovies(results);
-  return results;
-}
+  // console.log(results);
 
-
-
-
-async function renderMovies(movieData: any) {
-  let inputHtml = ``;
-
-  if (!movieData) {
-    inputHtml = `
-        <div id="defaultMessage" class="default-message">
-            <p>Unable to find what you're looking for. Please try another search.</p>
-        </div>`;
-    return;
-  }
-
-  movieData.forEach((id: any) => {
-    let url = `${base}?apikey=${key}&i=${id.imdbID}`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((movie) => {
-        let movieHtml = <MovieCard />;
-      });
+  let movieData: any = [];
+  results.forEach((id: any) => {
+    movieData.push(getMovie(id))
   });
+
+  setSearchResults(movieData);
 }
 
-
-
-
-function generateResults() {
-
-}
 
   return (
     <div className="Search">
@@ -80,6 +68,11 @@ function generateResults() {
       ) : (
         <></>
       )}
+      <div className="SearchResults">
+        {searchResults.map((result)=> {
+          return <MovieCard key={nanoid()} movie={result} />;
+        })}
+      </div>
     </div>
   );
 }

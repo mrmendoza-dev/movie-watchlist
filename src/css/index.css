@@ -93,12 +93,12 @@ button {
     
 
 }
-.hero__text {
+.hero-text {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.hero__input {
+.hero-input {
     display: flex;
     justify-content: center;
     width: 450px;
@@ -109,11 +109,11 @@ button {
         margin-top: 2em;
 
 }
-.hero__title {
+.hero-title {
     font-size: 42px;
     font-weight: 800;
 }
-.hero__link {
+.hero-link {
     font-size: 14px;
     font-weight: 700;
     color: #fff;
@@ -145,7 +145,7 @@ button {
 
 /* MOVIE CARD */
 
-.movie__card {
+.movie-card {
     
     display: flex;
     justify-content: start;
@@ -162,7 +162,7 @@ button {
 
 
 
-.movie__info {
+.movie-info {
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -170,7 +170,7 @@ button {
 
 }
 
-.movie__main {
+.movie-main {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -179,7 +179,7 @@ button {
 }
 
 
-.movie__sub {
+.movie-sub {
     display: flex;
     justify-content: start;
     gap: .8em;
@@ -187,35 +187,39 @@ button {
 }
 
 
+.MovieCard {
+    display: flex;
+    gap: 1em;
+}
 
-.movie__title {
+.movie-title {
     font-weight: 500;
     font-size: 18px;
     line-height: 20px;
 }
-.movie__year {
+.movie-year {
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
 }
-.movie__poster {
+.movie-poster {
     width: 100px;
 }
-.movie__runtime {
+.movie-runtime {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
 }
-.movie__genre {
+.movie-genre {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
 }
-.movie__plot {
+.movie-plot {
     font-size: 14px;
 
 }
-.movie__rating {
+.movie-rating {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
@@ -223,7 +227,7 @@ button {
 
 
 
-.movie__wl {
+.movie-wl {
     font-weight: 400;
     font-size: 12px;
     line-height: 20px;
