@@ -6,6 +6,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --clr-bg: #121212;
+    --clr-font: #ffffff;
+    --clr-fontAccent: #A5A5A5;
+    --clr-hr: #E5E7EB;
+}
+
 /* GENERAL */
 html, body {
     margin: 0;
@@ -29,7 +36,8 @@ a {
 .app-screen {
     width: 600px;
     /* height: 1000px; */
-    background-color: #fff;
+    background-color: var(--clr-bg);
+    color: var(--clr-font);
     margin: 0 auto;
     min-height: 100vh;
 }
@@ -38,7 +46,6 @@ a {
 button {
     cursor: pointer;
 }
-
 
 
 
@@ -51,15 +58,12 @@ button {
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 
 
-
-
 }
 .search-btn {
     padding: 0 2em;
     border-radius: 0px 6px 6px 0px;
     border: 1px solid #D1D5DB;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-
 
 }
 .fa-search {
@@ -79,7 +83,7 @@ button {
 .hero {
     background-color: #000;
     color: #fff;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("src/assets/images/bg.webp");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./src/assets/images/bg.webp");
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -150,7 +154,7 @@ button {
     gap: 1.5em;
 
     padding: 1.2em 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--clr-hr);
 
 
 }
@@ -162,7 +166,6 @@ button {
     display: flex;
     flex-direction: column;
     margin: 0;
-    /* border: 1px solid #ccc; */
     gap: .6em;
 
 }
@@ -217,9 +220,7 @@ button {
     font-size: 12px;
     line-height: 20px;
 }
-.movie__rating:before {
-    content: url('images/icon-star.png');
-}
+
 
 
 .movie__wl {
@@ -227,17 +228,6 @@ button {
     font-size: 12px;
     line-height: 20px;
 }
-.movie__wl:before {
-    content: url('images/icon-add-dark.png');
-    display: inline-block;
-    align-items: center;
-    text-align: center;
-    height: 6px;
-
-}
-
-
-
 
 .default-sub {
     color: #000;

@@ -1,7 +1,7 @@
 // import Hero from "../components/Hero";
 import Hero from "../components/Hero";
 import movieIcon from "../assets/images/icon-movie.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 import SearchBar from "../components/SearchBar";
 
@@ -9,11 +9,15 @@ import SearchBar from "../components/SearchBar";
 
 export default function Search(props: any) {
 
+  
+  const key = "b062f19b";
+  const base = "https://www.omdbapi.com/";
+  
+
+useEffect(()=> {getMovies("bladerunner")}, [])
 
 
-
-
-async function getMovies(search) {
+async function getMovies(search: any) {
   let url = `${base}?apikey=${key}&s=${search}`;
   let response = await fetch(url);
   let data = await response.json();
@@ -26,28 +30,24 @@ async function getMovies(search) {
 
 
 
-async function renderMovies(movie_data) {
+async function renderMovies(movieData: any) {
   let inputHtml = ``;
 
-  if (!movie_data) {
+  if (!movieData) {
     inputHtml = `
         <div id="defaultMessage" class="default-message">
             <p>Unable to find what you're looking for. Please try another search.</p>
         </div>`;
-    displayEl.innerHTML = inputHtml;
     return;
   }
 
-  movie_data.forEach((id) => {
+  movieData.forEach((id: any) => {
     let url = `${base}?apikey=${key}&i=${id.imdbID}`;
 
     fetch(url)
       .then((res) => res.json())
       .then((movie) => {
-          let movieHtml = <MovieCard />;
-
-        inputHtml += movieHtml;
-        displayEl.innerHTML = inputHtml;
+        let movieHtml = <MovieCard />;
       });
   });
 }

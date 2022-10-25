@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 
-export default function SearchBar(props) {
+export default function SearchBar(props: any) {
     const [formData, setFormData] = useState({
       search: "",
     });

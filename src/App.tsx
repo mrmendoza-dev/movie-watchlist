@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './App.css'
+import './css/App.css'
 import { Routes, Route } from "react-router-dom";
 import Search from "./pages/Search"
 import Watchlist from "./pages/Watchlist";
@@ -7,7 +7,6 @@ import Watchlist from "./pages/Watchlist";
 
 
 function App() {
-
   const [searchResults, setSearchResults] = useState([]);
   const [watchlist, setWatchlist] = useState([]);
 
@@ -30,13 +29,9 @@ function App() {
     // renderMovies(results);
   }
 
-
 function getSearchInput(searchInput: string) {
   getResults(searchInput);
 } 
-
-
-
 
 
 
@@ -47,8 +42,6 @@ function loadWatchlist() {
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
   }
 }
-
-
 
   return (
     <div className="App">

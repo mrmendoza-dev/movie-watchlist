@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom"
 import SearchBar from "./SearchBar";
-
+import DarkMode from "./DarkMode";
 
 
 
@@ -13,8 +13,8 @@ export default function Hero(props: any) {
           {/* <a href="index.html">{props.text.link}</a> */}
           <Link to={props.text.link}>{props.text.linkText}</Link>
         </p>
+        <DarkMode/>
       </div>
-
     </section>
   );
 }

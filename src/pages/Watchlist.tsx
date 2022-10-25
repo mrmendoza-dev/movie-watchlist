@@ -6,23 +6,21 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard"
 
 
-export default function Watchlist(props) {
+export default function Watchlist(props: any) {
 
 
 
 
   function renderWatchlist() {
 
-    console.log(watchlist);
-    watchlist.forEach((id) => {
-      let url = `${base}?apikey=${key}&i=${id}`;
+    props.watchlist.forEach((id: any) => {
+      // let url = `${base}?apikey=${key}&i=${id}`;
 
-      fetch(url)
-        .then((res) => res.json())
-        .then((movie) => {
-          let movieHtml = <MovieCard />;
-          inputHtml += movieHtml;
-        });
+      // fetch(url)
+      //   .then((res) => res.json())
+      //   .then((movie) => {
+      //     let movieHtml = <MovieCard />;
+      //   });
     });
   }
 
