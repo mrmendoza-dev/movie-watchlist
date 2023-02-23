@@ -93,6 +93,7 @@ async function getMovies(search: any) {
         <label htmlFor="search">
           <i className="fa-solid fa-magnifying-glass"></i>
         </label>
+        
         <input
           className="search-input"
           type="text"

@@ -136,10 +136,15 @@ margin-top: -.4em;
   gap: .4em;
   font: inherit;
   font-size: .8rem;
+  transition: all 200ms;
 }
 
 .btn-wl i{
     font-size: 16px;
+}
+
+.btn-wl:hover{
+    color: var(--clr-fontAccent);
 }
 
 
