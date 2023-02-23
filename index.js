@@ -42,7 +42,6 @@ async function getMovies(search) {
     let url = `${base}?apikey=${key}&s=${search}`;
     let response = await fetch(url);
     let data = await response.json()
-    console.log(url);
     let results = data.Search;
     renderMovies(results);
     return results
@@ -107,7 +106,6 @@ function renderWatchlist() {
 
         let inputHtml = ``;
 
-    console.log(watchlist);
     watchlist.forEach((id) => {
       let url = `${base}?apikey=${key}&i=${id}`;
 
@@ -152,16 +150,12 @@ function renderWatchlist() {
 
 function loadWatchlist() {
     watchlist = JSON.parse(localStorage.getItem("watchlist"));
-    console.log(watchlist);
     if (watchlist === null) {
         watchlist = [];
     }
 }
 
 function addWatchlist(movieId) {
-    console.log(movieId);
-    console.log(watchlist);
-    
     if (watchlist.includes(movieId)) {
         watchlist = watchlist.filter((item) => item !== movieId);
     } else {

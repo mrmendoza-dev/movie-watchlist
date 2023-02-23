@@ -1,0 +1,148 @@
+
+
+
+/* MOVIE CARD */
+
+.movie-card {
+    
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* padding: 1em 2.5em; */
+    gap: 1.5em;
+
+    padding: 1.2em 0;
+    border-bottom: 1px solid var(--clr-hr);
+
+
+}
+
+
+
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    gap: .6em;
+
+}
+
+.movie-main {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: .5em;
+
+}
+
+
+.movie-sub {
+    display: flex;
+    justify-content: start;
+    gap: .8em;
+    align-items: center;
+}
+
+
+.movie-list {
+    padding: 1em 2em;
+}
+
+.movie-list > :not(:last-child) {
+    border-bottom: 1px solid var(--clr-hr);
+}
+
+
+
+
+.MovieCard {
+    display: flex;
+    gap: 1.2em;
+    padding: 1.4em 0;
+}
+
+.movie-title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+      white-space: nowrap;
+  overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 60%;
+
+}
+.movie-year {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+}
+.movie-poster {
+    width: 100px;
+    height: 150px;
+}
+.movie-runtime {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+}
+.movie-genre {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+}
+.movie-plot {
+    font-size: 14px;
+        line-height: 20px;
+margin-top: -.4em;
+    text-overflow: ellipsis;
+    color: var(--clr-fontAccent);
+
+}
+.movie-rating {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+
+
+.movie-wl {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+
+
+.star {
+  color: #FEC654;
+  font-size: .8rem;
+}
+
+
+
+.btn-wl {
+  color: var(--clr-font);
+  cursor: pointer;
+  margin: .5em;
+
+  background-color: inherit;
+  border: none;
+  font-size: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .4em;
+  font: inherit;
+  font-size: .8rem;
+}
+
+.btn-wl i{
+    font-size: 16px;
+}
+
+
+/* .btn-wl:hover {
+  color: #FEC654;
+} */

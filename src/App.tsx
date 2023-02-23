@@ -1,73 +1,62 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './css/App.css'
 import { Routes, Route } from "react-router-dom";
-import Search from "./pages/Search"
-import Watchlist from "./pages/Watchlist";
+import SearchPage from "./pages/SearchPage"
+import WatchlistPage from "./pages/WatchlistPage";
 
+export const MyContext = React.createContext<any>(null);
 
 
 function App() {
-  const [watchlist, setWatchlist] = useState([]);
-  const [searchResults, setSearchResults] = useState([]);
-  useEffect(loadWatchlist, []);
+  const [watchlist, setWatchlist] = useState(loadWatchlist);
 
-
-
-  const key = "b062f19b";
-  const base = "https://www.omdbapi.com/";
-
-
-
-  async function getResults(search: string) {
-    let url = `${base}?apikey=${key}&s=${search}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    let results = data.Search;
-
-    setSearchResults(results);
-    console.log(results);
-    // renderMovies(results);
-  }
-
-function getSearchInput(searchInput: string) {
-  getResults(searchInput);
-} 
-
-
-
-function loadWatchlist() {
-  setWatchlist(JSON.parse(localStorage.getItem("watchlist") || "[]"));
-  if (watchlist === null) {
-    setWatchlist([]);
+  useEffect(() => {
+    console.log("watchlist");
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  }, [watchlist]);
+
+
+  function loadWatchlist() {
+    let watchlist: any = JSON.parse(localStorage.getItem("watchlist") || "[]");
+    if (watchlist != undefined) {
+      return watchlist;
+    } else {
+      localStorage.setItem("favorites", JSON.stringify([]));
+      return false;
+    }
   }
-}
+    const API = { base: "https://www.omdbapi.com/", key: "b062f19b" };
+
+
 
   return (
-    <div className="App">
-      <div className="app-screen">
+    <MyContext.Provider value={{ watchlist, setWatchlist, API }}>
+      <div className="App">
         <Routes>
           <Route
             path="/"
             element={
-              <Search
-                getSearchInput={getSearchInput}
-                watchlist={watchlist}
+              <SearchPage
+                // getSearchInput={getSearchInput}
+                // watchlist={watchlist}
+                // setWatchlist={setWatchlist}
               />
             }
           />
           <Route
             path="/watchlist"
             element={
-              <Watchlist
-                watchlist={setWatchlist}
-                loadWatchlist={loadWatchlist}
+              <WatchlistPage
+                watchlist={watchlist}
+                setWatchlist={setWatchlist}
+
+                // loadWatchlist={loadWatchlist}
               />
             }
           />
         </Routes>
       </div>
-    </div>
+    </MyContext.Provider>
   );
 }
 

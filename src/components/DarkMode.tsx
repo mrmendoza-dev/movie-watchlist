@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import "../css/index.css";
-import "../css/Nav.css";
 
 export default function DarkMode() {
   const root: any = document.querySelector(":root");
@@ -22,10 +20,10 @@ export default function DarkMode() {
   useEffect(setTheme, [darkMode]);
 
   const darkTheme = {
-    font: "#ffffff",
+    font: "#FFFFFF",
     bg: "#121212",
     fontAccent: "#A5A5A5",
-    hr: "#E5E7EB",
+    hr: "#2C2C2C",
   };
 
   const lightTheme = {
@@ -57,9 +55,17 @@ export default function DarkMode() {
   return (
     <button className="theme-btn" onClick={changeTheme}>
       {darkMode ? (
-        <i style={{ color: "white" }} className="fa-solid fa-sun"></i>
+        <i
+          style={{ color: "white" }}
+          className="fa-solid fa-sun"
+          title="Light Mode"
+        ></i>
       ) : (
-        <i style={{ color: "white" }} className="fa-solid fa-moon"></i>
+        <i
+          style={{ color: "white" }}
+          className="fa-solid fa-moon"
+          title="Dark Mode"
+        ></i>
       )}
     </button>
   );
