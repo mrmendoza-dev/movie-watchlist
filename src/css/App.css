@@ -21,7 +21,7 @@ body {
 }
 
 body {
-  background-color: #000;
+  background-color: #080808;
   font-family: "Inter";
 }
 
@@ -157,6 +157,7 @@ input:focus {
   margin: 0 auto;
   transform: translateY(-50%);
   width: fit-content;
+
 }
 .SearchBar i {
   transform: translateX(200%);
@@ -172,6 +173,8 @@ input:focus {
   background-color: var(--clr-searchBg);
   border: none;
   border: 1px solid var(--clr-hr);
+      color: var(--clr-font);
+
 }
 .search-btn {
   padding: 0 2em;
@@ -194,4 +197,8 @@ input:focus {
   padding-left: 1em;
   transform: translateY(-50%);
   color: rgb(223, 225, 229);
+}
+
+.results-text {
+    color: var(--clr-fontAccent);
 }
