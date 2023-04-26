@@ -25,6 +25,8 @@ $mobile-height: 1200px;
   margin: 0 auto;
   min-height: 100vh;
   font-size: 16px;
+      overflow-x: hidden;
+
 }
 
 /* HEADER */
@@ -197,6 +199,24 @@ $mobile-height: 1200px;
   .movie-list {
     padding: 1em;
 
+  }
+  .header-input {
+    width: 100%;
+  }
+  .header-title {
+    font-size: 32px;
+  }
+  
+  
+  .SearchBar {
+    width: 100%;
+
+  }
+  .search-input {
+    width: 60%;
+  }
+  .search-btn {
+    width: 20%;
   }
 
 
