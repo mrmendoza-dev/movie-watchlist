@@ -1,8 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 
 $mobile-width: 767px;
@@ -18,25 +13,9 @@ $mobile-height: 1200px;
   --clr-searchBtn: #4b4b4b;
 }
 
-/* GENERAL */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  background-color: #080808;
-  font-family: "Inter";
-}
 
-img {
-  max-width: 100%;
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 
 .App {
   width: 600px;
@@ -48,10 +27,6 @@ a {
   font-size: 16px;
 }
 
-button {
-  cursor: pointer;
-}
-
 /* HEADER */
 .header {
 }
@@ -61,7 +36,7 @@ button {
   background-color: #000;
   color: #fff;
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../assets/images/bg.webp");
+    url("/images/bg.webp");
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -146,13 +121,7 @@ button {
   text-shadow: 0 0 15px white;
 }
 
-input,
-button {
-  font-family: inherit;
-}
-input:focus {
-  outline: none;
-}
+
 
 /* INPUT */
 .SearchBar {
@@ -206,4 +175,29 @@ input:focus {
 
 .results-text {
     color: var(--clr-fontAccent);
+}
+
+
+.movie-list {
+    padding: 1em 2em;
+}
+
+.movie-list > :not(:last-child) {
+    border-bottom: 1px solid var(--clr-hr);
+}
+
+
+
+
+
+@media screen and (max-width: $mobile-width) {
+  .App {
+    width: 100%;
+  }
+  .movie-list {
+    padding: 1em;
+
+  }
+
+
 }
