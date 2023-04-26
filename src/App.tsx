@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import './css/App.css'
-import { Routes, Route } from "react-router-dom";
-import SearchPage from "./pages/SearchPage"
+import React, { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./css/App.scss";
+import SearchPage from "./pages/SearchPage";
 import WatchlistPage from "./pages/WatchlistPage";
 
 export const MyContext = React.createContext<any>(null);
-
 
 function App() {
   const [watchlist, setWatchlist] = useState(loadWatchlist);
@@ -14,7 +13,6 @@ function App() {
     console.log("watchlist");
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
   }, [watchlist]);
-
 
   function loadWatchlist() {
     let watchlist: any = JSON.parse(localStorage.getItem("watchlist") || "[]");
@@ -25,9 +23,7 @@ function App() {
       return false;
     }
   }
-    const API = { base: "https://www.omdbapi.com/", key: "b062f19b" };
-
-
+  const API = { base: "https://www.omdbapi.com/", key: "b062f19b" };
 
   return (
     <MyContext.Provider value={{ watchlist, setWatchlist, API }}>
@@ -37,9 +33,9 @@ function App() {
             path="/"
             element={
               <SearchPage
-                // getSearchInput={getSearchInput}
-                // watchlist={watchlist}
-                // setWatchlist={setWatchlist}
+              // getSearchInput={getSearchInput}
+              // watchlist={watchlist}
+              // setWatchlist={setWatchlist}
               />
             }
           />
@@ -60,4 +56,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
