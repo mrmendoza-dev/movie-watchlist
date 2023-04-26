@@ -1,8 +1,5 @@
-
-
 $mobile-width: 767px;
 $mobile-height: 1200px;
-
 
 :root {
   --clr-bg: #121212;
@@ -13,10 +10,6 @@ $mobile-height: 1200px;
   --clr-searchBtn: #4b4b4b;
 }
 
-
-
-
-
 .App {
   width: 600px;
   /* height: 1000px; */
@@ -25,8 +18,7 @@ $mobile-height: 1200px;
   margin: 0 auto;
   min-height: 100vh;
   font-size: 16px;
-      overflow-x: hidden;
-
+  overflow-x: hidden;
 }
 
 /* HEADER */
@@ -123,25 +115,20 @@ $mobile-height: 1200px;
   text-shadow: 0 0 15px white;
 }
 
-
-
 /* INPUT */
 .SearchBar {
-  /* display: none; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   font-size: 14px;
-  margin: 0 auto;
   transform: translateY(-50%);
-  width: fit-content;
-
-}
-.SearchBar i {
-  transform: translateX(200%);
-  color: var(--clr-fontAccent);
+  width: 100%;
 }
 
 .search-input {
-  width: 300px;
+  max-width: 340px;
+  width: 100%;
   border-radius: 6px 0px 0px 6px;
   padding-left: 3em;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
@@ -149,11 +136,9 @@ $mobile-height: 1200px;
   background-color: var(--clr-searchBg);
   border: none;
   border: 1px solid var(--clr-hr);
-      color: var(--clr-font);
-
+  color: var(--clr-font);
 }
 .search-btn {
-  padding: 0 2em;
   border-radius: 0px 6px 6px 0px;
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
   height: 100%;
@@ -163,11 +148,12 @@ $mobile-height: 1200px;
   border: 1px solid var(--clr-hr);
   transition: background-color 200ms;
   color: var(--clr-font);
+  text-align: center;
 }
 .search-btn:hover {
   background-color: var(--clr-hr);
 }
-.fa-search {
+.search-icon {
   position: absolute;
   top: 50%;
   padding-left: 1em;
@@ -176,29 +162,30 @@ $mobile-height: 1200px;
 }
 
 .results-text {
-    color: var(--clr-fontAccent);
+  color: var(--clr-fontAccent);
 }
 
-
 .movie-list {
-    padding: 1em 2em;
+  padding: 1em 2em;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .movie-list > :not(:last-child) {
-    border-bottom: 1px solid var(--clr-hr);
+  border-bottom: 1px solid var(--clr-hr);
 }
-
-
-
-
 
 @media screen and (max-width: $mobile-width) {
   .App {
     width: 100%;
   }
+  .Header {
+    padding: 0 1em;
+    padding-top: 3em;
+    min-height: 200px;
+  }
   .movie-list {
     padding: 1em;
-
   }
   .header-input {
     width: 100%;
@@ -206,11 +193,9 @@ $mobile-height: 1200px;
   .header-title {
     font-size: 32px;
   }
-  
-  
+
   .SearchBar {
     width: 100%;
-
   }
   .search-input {
     width: 60%;
@@ -218,6 +203,5 @@ $mobile-height: 1200px;
   .search-btn {
     width: 20%;
   }
-
 
 }

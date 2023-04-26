@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import SearchPage from "./pages/SearchPage";
 import WatchlistPage from "./pages/WatchlistPage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "./assets/icons";
+
 
 export const MyContext = React.createContext<any>(null);
 

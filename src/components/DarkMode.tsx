@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../assets/icons";
 
 export default function DarkMode() {
   const root: any = document.querySelector(":root");
@@ -37,14 +39,13 @@ export default function DarkMode() {
     searchBtn: "#F9FAFB",
   };
 
-
   function updateTheme(theme: any) {
-      root.style.setProperty("--clr-font", theme.font);
-      root.style.setProperty("--clr-bg", theme.bg);
-      root.style.setProperty("--clr-fontAccent", theme.fontAccent);
-      root.style.setProperty("--clr-hr", theme.hr);
-      root.style.setProperty("--clr-searchBg", theme.searchBg);
-      root.style.setProperty("--clr-searchBtn", theme.searchBtn);
+    root.style.setProperty("--clr-font", theme.font);
+    root.style.setProperty("--clr-bg", theme.bg);
+    root.style.setProperty("--clr-fontAccent", theme.fontAccent);
+    root.style.setProperty("--clr-hr", theme.hr);
+    root.style.setProperty("--clr-searchBg", theme.searchBg);
+    root.style.setProperty("--clr-searchBtn", theme.searchBtn);
   }
 
   function setTheme() {
@@ -59,17 +60,17 @@ export default function DarkMode() {
   return (
     <button className="theme-btn" onClick={changeTheme}>
       {darkMode ? (
-        <i
+        <FontAwesomeIcon
+          icon={icons.faSun}
           style={{ color: "white" }}
-          className="fa-solid fa-sun"
           title="Light Mode"
-        ></i>
+        />
       ) : (
-        <i
+        <FontAwesomeIcon
+          icon={icons.faMoon}
           style={{ color: "white" }}
-          className="fa-solid fa-moon"
           title="Dark Mode"
-        ></i>
+        />
       )}
     </button>
   );

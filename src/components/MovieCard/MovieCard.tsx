@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { MyContext } from "../../App";
 import "./MovieCard.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../../assets/icons";
 
 export default function MovieCard(props: any) {
   const { watchlist, setWatchlist } = useContext(MyContext);
@@ -33,7 +35,11 @@ export default function MovieCard(props: any) {
           <p className="movie-title">{movie.Title}</p>
           <p className="movie-year">{movie.Year}</p>
 
-          <i className="star fa-solid fa-star" title="IMDb Rating"></i>
+          <FontAwesomeIcon
+            icon={icons.faStar}
+            className="star"
+            title="IMDb Rating"
+          />
 
           <p className="movie-rating">{movie.imdbRating}</p>
         </div>
@@ -49,15 +55,15 @@ export default function MovieCard(props: any) {
             }}
           >
             {watchlist.includes(movie.imdbID) ? (
-              <i
-                className="fa-solid fa-circle-minus"
+              <FontAwesomeIcon
+                icon={icons.faCircleMinus}
                 title="Remove from Watchlist"
-              ></i>
+              />
             ) : (
-              <i
-                className="fa-solid fa-circle-plus"
+              <FontAwesomeIcon
+                icon={icons.faCirclePlus}
                 title="Add to Watchlist"
-              ></i>
+              />
             )}
             <p className="wl-text">Watchlist</p>
           </button>

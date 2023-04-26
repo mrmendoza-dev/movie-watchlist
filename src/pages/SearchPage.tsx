@@ -1,9 +1,10 @@
-// import Hero from "../components/Hero";
 import Header from "../components/Header";
 import React, { useState, useEffect, useContext } from "react";
 import MovieCard from "../components/MovieCard/MovieCard";
 import { nanoid } from "nanoid";
 import { MyContext } from "../App";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../assets/icons";
 
 export default function Search(props: any) {
   const { watchlist, setWatchlist, API } = useContext(MyContext);
@@ -81,24 +82,24 @@ export default function Search(props: any) {
         }}
       />
 
-      <div className="SearchBar">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="search">
-            <i className="fa-solid fa-magnifying-glass"></i>
-          </label>
-
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search for a movie"
-            onChange={handleChange}
-            value={formData.search}
-            name="search"
-            id="search"
+      <form className="SearchBar" onSubmit={handleSubmit}>
+        <label htmlFor="search">
+          <FontAwesomeIcon
+            icon={icons.faMagnifyingGlass}
+            className="search-icon"
           />
-          <button className="search-btn">Search</button>
-        </form>
-      </div>
+        </label>
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Search for a movie"
+          onChange={handleChange}
+          value={formData.search}
+          name="search"
+          id="search"
+        />
+        <button className="search-btn">Search</button>
+      </form>
 
       <div className="SearchResults">
         {searchResults ? (
@@ -112,7 +113,7 @@ export default function Search(props: any) {
           </div>
         ) : (
           <div className="default-message">
-            <i className="fa-solid fa-film"></i>
+            <FontAwesomeIcon icon={icons.faFilm} />
             <p>Start Exploring</p>
           </div>
         )}

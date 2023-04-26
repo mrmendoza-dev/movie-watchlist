@@ -5,6 +5,8 @@ import MovieCard from "../components/MovieCard/MovieCard"
   import { MyContext } from "../App";
   import React, { useState, useEffect, useContext } from "react";
 import { nanoid } from "nanoid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icons } from "../assets/icons";
 
 export default function WatchlistPage(props: any) {
     const { watchlist, setWatchlist, addToWatchlist, API } = useContext(MyContext);
@@ -49,7 +51,7 @@ export default function WatchlistPage(props: any) {
                 <p>Your watchlist is looking a little empty...</p>
 
                 <Link to="/">
-                  <i className="fa-solid fa-circle-plus"></i>
+                  <FontAwesomeIcon icon={icons.faCirclePlus} />
                   <p className="default-sub">Let's add some movies!</p>
                 </Link>
               </div>
