@@ -169,6 +169,7 @@ $mobile-height: 1200px;
   padding: 1em 2em;
   overflow-y: auto;
   height: 100%;
+  max-width: 100%;
 }
 
 .movie-list > :not(:last-child) {

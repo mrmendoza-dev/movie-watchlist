@@ -38,13 +38,13 @@ export default function WatchlistPage(props: any) {
 
 
 
-        <section className="display">
+        <section className="movie-list">
           <div className="SearchResults">
             {watchlist ? (
               <>
-                {/* {watchlist.map((result) => {
+                {watchlist.map((result: any) => {
                   return <MovieCard key={nanoid()} movie={result} />;
-                })} */}
+                })}
               </>
             ) : (
               <div className="default-message">

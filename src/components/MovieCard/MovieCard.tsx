@@ -9,9 +9,6 @@ export default function MovieCard(props: any) {
 
   const movie = props.movie;
 
-  //  function addToWatchlist(id: any) {
-  //    console.log("watchlist");
-  //  }
 
   function addToWatchlist(id: any) {
     let newWatchlist = watchlist;
@@ -23,8 +20,8 @@ export default function MovieCard(props: any) {
     console.log(newWatchlist);
 
     setWatchlist(newWatchlist);
-    //  localStorage.setItem("watchlist", JSON.stringify(watchlist));
   }
+
 
   return (
     <div className="MovieCard">

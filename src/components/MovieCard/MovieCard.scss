@@ -1,21 +1,30 @@
 @import "../../App.scss";
-.movie-card {
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  /* padding: 1em 2.5em; */
-  gap: 1.5em;
 
-  padding: 1.2em 0;
+
+
+.MovieCard {
+  display: flex;
+  gap: 1.2em;
+  padding: 1.4em 0;
+  overflow: hidden;
+
+  justify-content: space-between;
+  // align-items: center;
+
   border-bottom: 1px solid var(--clr-hr);
+  // border: 1px solid red;
+  width: 100%;
 }
+
+
+
 
 .movie-info {
   display: flex;
   flex-direction: column;
   margin: 0;
   gap: 0.6em;
-  max-width: 75%;
+  max-width: 65%;
 }
 
 .movie-main {
@@ -32,12 +41,7 @@
   align-items: center;
 }
 
-.MovieCard {
-  display: flex;
-  gap: 1.2em;
-  padding: 1.4em 0;
-  overflow: hidden;
-}
+
 
 .movie-title {
   font-weight: 500;
@@ -128,6 +132,9 @@
     gap: 0;
     justify-content: space-between;
     
+
+
+
     .movie-runtime {
       order: 1;
     }
