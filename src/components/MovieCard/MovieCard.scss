@@ -1,30 +1,20 @@
 @import "../../App.scss";
 
-
-
 .MovieCard {
   display: flex;
   gap: 1.2em;
   padding: 1.4em 0;
   overflow: hidden;
-
-  justify-content: space-between;
-  // align-items: center;
-
   border-bottom: 1px solid var(--clr-hr);
-  // border: 1px solid red;
   width: 100%;
 }
-
-
-
 
 .movie-info {
   display: flex;
   flex-direction: column;
   margin: 0;
   gap: 0.6em;
-  max-width: 65%;
+  max-width: 90%;
 }
 
 .movie-main {
@@ -41,54 +31,46 @@
   align-items: center;
 }
 
-
-
 .movie-title {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.1rem;
   line-height: 20px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 60%;
 }
-.movie-year {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-}
-.movie-poster {
-  width: 100px;
-  height: 150px;
-}
-.movie-runtime {
+
+.movie-year,
+.movie-genre,
+.movie-runtime,
+.movie-rating,
+.movie-wl {
   font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-}
-.movie-genre {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-}
-.movie-plot {
-  font-size: 14px;
-  line-height: 20px;
-  margin-top: -0.4em;
-  /* text-overflow: ellipsis; */
-  color: var(--clr-fontAccent);
-  max-width: 100%;
-}
-.movie-rating {
-  font-weight: 400;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 20px;
 }
 
-.movie-wl {
-  font-weight: 400;
-  font-size: 12px;
+.movie-year {
+  font-weight: 500;
+}
+.movie-poster {
+  min-width: 100px;
+  width: 100px;
+  height: 150px;
+  background-color: rgba(100, 100, 100, 0.25);
+  object-fit: cover;
+}
+.error {
+  object-fit: scale-down;
+}
+
+.movie-plot {
+  font-size: 0.9rem;
   line-height: 20px;
+  margin-top: -0.4em;
+  max-width: 100%;
+  color: var(--clr-fontAccent);
 }
 
 .star {
@@ -103,43 +85,34 @@
 
   background-color: inherit;
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.4em;
-  font: inherit;
-  font-size: 0.8rem;
   transition: all 200ms;
-}
 
-.btn-wl i {
-  font-size: 16px;
+  p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
 }
 
 .btn-wl:hover {
   color: var(--clr-fontAccent);
 }
 
-/* .btn-wl:hover {
-  color: #FEC654;
-} */
-
-
 @media screen and (max-width: $mobile-width) {
   .movie-sub {
     flex-wrap: wrap;
     gap: 0;
     justify-content: space-between;
-    
-
-
 
     .movie-runtime {
       order: 1;
     }
     .movie-genre {
-            width: 100%;
+      width: 100%;
       order: 3;
     }
     .btn-wl {

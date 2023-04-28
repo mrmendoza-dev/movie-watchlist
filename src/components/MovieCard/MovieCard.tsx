@@ -1,35 +1,43 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MyContext } from "../../App";
 import "./MovieCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../../assets/icons";
+import missingPoster from "/images/missing.png";
 
-export default function MovieCard(props: any) {
+export default function MovieCard({ movie }: any) {
   const { watchlist, setWatchlist } = useContext(MyContext);
 
-  const movie = props.movie;
-
-
   function addToWatchlist(id: any) {
-    let newWatchlist = watchlist;
-    if (newWatchlist.includes(id)) {
-      newWatchlist.splice(newWatchlist.indexOf(id), 1);
+    if (watchlist.includes(id)) {
+      setWatchlist(watchlist.filter((watchlistId: any) => watchlistId !== id));
     } else {
-      newWatchlist.push(id);
+      setWatchlist([...watchlist, id]);
     }
-    console.log(newWatchlist);
-
-    setWatchlist(newWatchlist);
   }
 
+  const imdbUrl = `https://www.imdb.com/title/${movie.imdbID}/`;
 
   return (
     <div className="MovieCard">
-      <img className="movie-poster" src={movie.Poster} />
+      <img
+        className={`movie-poster ${movie.Poster === "N/A" ? "error" : ""}`}
+        src={movie.Poster}
+        onError={(e: any) => {
+          e.target.src = movie.Poster === "N/A" ? missingPoster : "";
+        }}
+      />
 
       <div className="movie-info">
         <div className="movie-main">
-          <p className="movie-title">{movie.Title}</p>
+          <a
+            className="movie-title"
+            href={imdbUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            <p>{movie.Title}</p>
+          </a>
           <p className="movie-year">{movie.Year}</p>
 
           <FontAwesomeIcon
@@ -66,9 +74,7 @@ export default function MovieCard(props: any) {
           </button>
         </div>
 
-        <div className="">
-          <p className="movie-plot">{movie.Plot}</p>
-        </div>
+        <p className="movie-plot">{movie.Plot}</p>
       </div>
     </div>
   );

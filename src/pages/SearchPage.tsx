@@ -6,30 +6,26 @@ import { MyContext } from "../App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icons } from "../assets/icons";
 
-export default function Search(props: any) {
+export default function SearchPage(props: any) {
   const { watchlist, setWatchlist, API } = useContext(MyContext);
 
-  // let watchlist = props.watchlist;
   const [searchResults, setSearchResults] = useState([]);
-  const [formData, setFormData] = useState({
-    search: "",
-  });
-
+  const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("blade");
 
+
   useEffect(() => {
-    getMovies(searchQuery);
+    getMoviesbyQuery(searchQuery);
   }, []);
 
   async function getMovieDetails(id: any) {
     let url = `${API.base}?apikey=${API.key}&i=${id.imdbID}`;
     let response = await fetch(url);
     let data = await response.json();
-    // console.log(data);
     return data;
   }
 
-  async function getMovies(search: any) {
+  async function getMoviesbyQuery(search: any) {
     let url = `${API.base}?apikey=${API.key}&s=${search}`;
     let response = await fetch(url);
     let data = await response.json();
@@ -50,27 +46,24 @@ export default function Search(props: any) {
       );
     });
     await Promise.all(promises);
-    console.log(movieData);
     setSearchResults(movieData);
   }
 
-  function handleChange(event: any) {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => {
-      return {
-        ...prevFormData,
-        [name]: value,
-      };
-    });
+  function handleSearchInputChange(event: any) {
+    setSearchInput(event.target.value);
   }
 
-  function handleSubmit(event: any) {
+
+  function searchMovie(event: any) {
     event.preventDefault();
-    if (formData.search) {
-      setSearchQuery(formData.search);
-      getMovies(formData.search);
+    if (searchInput) {
+      setSearchQuery(searchInput);
     }
   }
+  useEffect(() => {
+    getMoviesbyQuery(searchQuery);
+  }, [searchQuery]);
+
 
   return (
     <div className="SearchPage">
@@ -82,7 +75,7 @@ export default function Search(props: any) {
         }}
       />
 
-      <form className="SearchBar" onSubmit={handleSubmit}>
+      <form className="SearchBar" onSubmit={searchMovie}>
         <label htmlFor="search">
           <FontAwesomeIcon
             icon={icons.faMagnifyingGlass}
@@ -93,8 +86,8 @@ export default function Search(props: any) {
           className="search-input"
           type="text"
           placeholder="Search for a movie"
-          onChange={handleChange}
-          value={formData.search}
+          onChange={handleSearchInputChange}
+          value={searchInput}
           name="search"
           id="search"
         />

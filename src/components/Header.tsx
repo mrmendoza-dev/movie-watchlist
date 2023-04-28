@@ -1,6 +1,5 @@
-import {Link} from "react-router-dom"
-import DarkMode from "./DarkMode";
-
+import { Link } from "react-router-dom";
+import DarkMode from "./DarkMode/DarkMode";
 
 export default function Header(props: any) {
   return (
@@ -16,6 +15,3 @@ export default function Header(props: any) {
     </section>
   );
 }
-
-
-
